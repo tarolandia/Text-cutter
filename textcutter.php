@@ -82,7 +82,7 @@ class textCutter{
                 $snippet = substr($snippet, 0, $right_pos); 
                   
         	}
-            if(($pos - 1) > 0 && ( !in_array($text[$pos - 1], $this-endChars) || !in_array( $text[$pos], $this->endChars ) ) ){ //we have to left side
+            if(($pos - 1) > 0 && ( !in_array($text[$pos - 1], $this->endChars) || !in_array( $text[$pos], $this->endChars ) ) ){ //we have to left side
           	 	$forward_pos = 0;
              	$left_pos = 0;
              	while($forward_pos != strlen($snippet)-1){

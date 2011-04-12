@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Text cutter</title>
+        <meta content="Get text snippets, cut text" name="description" >
+    </head>
+    <body>
+        <h1>Text cutter</h1>
+        <h2>Example text:</h2>
+        <p>Aliquam sodales nibh in nunc aliquam tincidunt. Aliquam interdum imperdiet congue? Suspendisse volutpat erat in ligula feugiat ut elementum diam vehicula? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa ipsum, lobortis quis pellentesque in, consequat vitae nisl? Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In mauris felis, dictum ac tempus id, tristique quis leo! Donec luctus tortor sed mauris ultrices ultricies. Etiam arcu mi, ullamcorper vel vehicula ac, iaculis nec ante. Nullam non vestibulum erat. Suspendisse diam velit; semper at feugiat non, feugiat vitae diam. Donec metus eros, vehicula et molestie ut, posuere at diam. Vestibulum aliquet fermentum cursus. Nunc vel mattis massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur volutpat nunc quis odio iaculis quis bibendum neque vulputate? Aliquam luctus consequat dui, et cursus dolor adipiscing quis. Pellentesque sit amet lorem neque, vitae molestie turpis? Pellentesque dignissim nibh eu nisl dapibus sollicitudin.</p>
+        
+        <h2>Example 1: simple cut</h2>
+        <p class="classname">
+            ...
+            include_once "textcutter.php";<br>
+            
+            $cutter = new textCutter();<br>
+            
+            echo $cutter->get_snippet("", $text, 100, true, true, "...");<br>
+            <br>
+            Result:<br>
+            Aliquam sodales nibh in nunc aliquam tincidunt. Aliquam interdum imperdiet congue? Suspendisse...<br>
+            <br>
+            echo $cutter->get_snippet("", $text, 200, true, true, "...");<br>
+            <br>
+            Result:<br>
+            <br>
+            Aliquam sodales nibh in nunc aliquam tincidunt. Aliquam interdum imperdiet congue? Suspendisse volutpat erat in ligula feugiat ut elementum diam vehicula? Lorem ipsum dolor sit amet, consectetur...
+        </p>
+        
+        
+        <h2>Example 2: search and cut two sides</h2>
+        <p class="classname">
+            ...
+            include_once "textcutter.php";<br>
+            
+            $cutter = new textCutter();<br>
+            
+            echo "..." . $cutter->get_snippet("vehicula", $text, 100, true, true, "") . "...";
+            <br>
+            Result:<br>
+            ...erat in ligula feugiat ut elementum diam <b>vehicula</b>? Lorem ipsum dolor sit amet, consectetur...<br>
+            <br>
+            echo "..." . $cutter->get_snippet("adipiscing", $text, 200, true, true, "") . "...";
+            <br>
+            Result:<br>
+            <br>
+            ...erat in ligula feugiat ut elementum diam vehicula? Lorem ipsum dolor sit amet, consectetur <b>adipiscing</b> elit. Donec massa ipsum, lobortis quis pellentesque in, consequat vitae nisl? Cum sociis...
+        </p>
+        
+        
+    </body>
+</html>
